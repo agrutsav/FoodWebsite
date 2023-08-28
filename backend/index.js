@@ -18,7 +18,8 @@ app.use('/api',require('./Routes/OrderData'));
 app.get("/",(req,res)=>{
     res.send("hello")
 })
-app.listen(8800,()=>{
+const port= process.env.PORT || 8800;
+app.listen(port,()=>{
     console.log("Connected successfully")
     
 })
