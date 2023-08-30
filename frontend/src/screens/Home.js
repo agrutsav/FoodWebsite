@@ -109,7 +109,7 @@ export default function Home() {
 
 
       <div className="container">
-        {foodCat !== null ? (
+        {foodCat !== undefined ? (
           foodCat.map((data) => {
             return (
               <div className="row mb-3">
@@ -117,7 +117,7 @@ export default function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodItem !== null ? (
+                {foodItem !== undefined ? (
                   foodItem
                     .filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))
                     .map((filterItems) => {
