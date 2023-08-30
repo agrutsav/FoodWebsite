@@ -3,24 +3,20 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import { BACKEND_URL } from '../api';
+import axios from "axios";
 export default function Home() {
   const [search,setSearch]=useState("")
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch(`${BACKEND_URL}/api/foodData`, {
-      method: "Post",
-      headers: {
-        'Accept': 'application/json',
-        "Content-type": "application/json",
-        'Access-Control-Allow-Origin': '*' ,
-      },
-    });
-    response = await response.json();
-    // console.log(response[0],response[1])
-    setFoodCat(response[0]);
-    setFoodItem(response[1]);
+    const response = await axios.get(`${BACKEND_URL}/api/foodData`)
+
+    // await response.json;
+    // console.log(response)
+    // console.log(response.data[0],response.data[1])
+    setFoodCat(response.data[0]);
+    setFoodItem(response.data[1]);
   };
 
   useEffect(() => {
@@ -111,7 +107,7 @@ export default function Home() {
 
 
       <div className="container">
-        {foodCat ? (
+        {foodCat!==null ? (
           foodCat.map((data) => {
             return (
               <div className="row mb-3">
