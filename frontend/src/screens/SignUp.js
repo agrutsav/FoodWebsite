@@ -14,7 +14,9 @@ export default function SignUp() {
     const response = await fetch(`${BACKEND_URL}/api/createuser`, {
       method: "Post",
       headers: {
+        'Accept': 'application/json',
         "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*' ,
       },
       body: JSON.stringify({
         name: credentials.name,

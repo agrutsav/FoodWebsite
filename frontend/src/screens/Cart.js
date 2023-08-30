@@ -17,7 +17,9 @@ export default function Cart() {
         let response=await fetch(`${BACKEND_URL}/api/orderData`,{
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Accept': 'application/json',
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*' ,
             },
             body:JSON.stringify({
                 order_data:data,

@@ -11,7 +11,9 @@ export default function MyOrder() {
         await fetch(`${BACKEND_URL}/api/myOrderData`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Accept': 'application/json',
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*' ,
             },
             body:JSON.stringify({
                 email:localStorage.getItem('userEmail')
@@ -43,7 +45,7 @@ export default function MyOrder() {
             <div className='container'>
                 <div className='row'>
 
-                    {orderData !== {} ? Array(orderData).map(data => {
+                    {orderData !== null ? Array(orderData).map(data => {
                         return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {

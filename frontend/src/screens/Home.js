@@ -12,7 +12,9 @@ export default function Home() {
     let response = await fetch(`${BACKEND_URL}/api/foodData`, {
       method: "Post",
       headers: {
-        "Content-Type": "application/json",
+        'Accept': 'application/json',
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*' ,
       },
     });
     response = await response.json();

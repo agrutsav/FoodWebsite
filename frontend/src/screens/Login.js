@@ -12,7 +12,9 @@ export default function Login() {
     const response = await fetch(`${BACKEND_URL}/api/loginuser`, {
       method: "Post",
       headers: {
+        'Accept': 'application/json',
         "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*' ,
       },
       body: JSON.stringify({
         email: credentials.email,
